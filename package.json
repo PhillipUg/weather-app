@@ -1,0 +1,29 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open",
+    "deploy-demo": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhillipUg/weather-app.git"
+  },
+  "keywords": [],
+  "author": "phillip musiime <phillipmusiime@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PhillipUg/weather-app/issues"
+  },
+  "homepage": "https://github.com/PhillipUg/weather-app#readme",
+  "dependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
