@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
+
 <body>
-  
+  <div class="wrapper">
+    <div class="header">
+      <h1 class="title">SIMPLE WEATHER APP</h1>
+      <form action="">
+        <input id="search" class="search" placeholder="Search for a city" autocomplete="off">
+        <button class="btn">SEARCH</button>
+      </form>
+    </div>
+    <div class="content">
+      <div class="head"></div>
+      <div class="middle">
+        <h1 id="city"></h1>
+        <p id="temperature"></p>
+        <p id="summary"></p>
+        <canvas id="icon2" width="128" height="128"></canvas>
+      </div>
+      <div class="bottom">
+        <div class="forecast">
+          <p id="day">wed</p>
+          <canvas id="icon1" width="80" height="80"></canvas>
+          <p id="forecast-temp">27</p>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <!-- <canvas id="icon1" width="128" height="128"></canvas>
+      <canvas id="icon2" width="128" height="128"></canvas> -->
+
+    </div>
+  </div>
+  <script src="https://darkskyapp.github.io/skycons/skycons.js"></script>
   <script type="module" src="main.js"></script>
 </body>
+
 </html>
