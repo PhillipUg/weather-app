@@ -2,10 +2,10 @@
   "name": "weather-app",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode development",
+    "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open",
     "deploy-demo": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages"
@@ -21,7 +21,8 @@
     "url": "https://github.com/PhillipUg/weather-app/issues"
   },
   "homepage": "https://github.com/PhillipUg/weather-app#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
