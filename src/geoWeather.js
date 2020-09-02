@@ -1,11 +1,11 @@
 import { skycons, setIcon } from './skycon';
-import { temperature, summary, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error } from './dom';
-
+import { temperature, summary, slider, forecasts, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error } from './dom';
 
 function setWeather(api, forecast) {
   fetch(api)
     .then(res => res.json())
     .then(res => {
+      console.log(res)
       const name = res.name;
       const country = res.sys.country;
       const temp = res.main.temp;
@@ -28,9 +28,7 @@ function setWeather(api, forecast) {
       setIcon("icon2", main);
 
       skycons.play();
-
-    })
-    .catch((err) => console.log("Error: ", err))
+    });
 
   fetch(forecast)
     .then(res => res.json())
@@ -60,6 +58,7 @@ function setWeather(api, forecast) {
         foicon.setAttribute("height", "80");
 
         const fotemp = document.createElement('div');
+        fotemp.classList.add('forecast-temp');
         fotemp.id = "forecast-temp";
         fotemp.innerHTML = `${Math.floor(result.main.temp)} &#176;C`;;
 
@@ -76,7 +75,6 @@ function setWeather(api, forecast) {
     .catch(() => {
       error.classList.toggle('hide');
     });
-
 }
 
 const setGeoWeather = () => {
@@ -87,7 +85,7 @@ const setGeoWeather = () => {
       const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=71051542ca7ca9c015a46c330e051ec1`;
       const forecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=metric&appid=71051542ca7ca9c015a46c330e051ec1`;
 
-      setWeather(api, forecast)
+      setWeather(api, forecast);
     })
   }
 }
@@ -97,11 +95,32 @@ search.addEventListener('click', (e) => {
   bottom.innerHTML = "";
   error.classList.add('hide');
 
+
   const api = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=71051542ca7ca9c015a46c330e051ec1`;
   const forecast = `https://api.openweathermap.org/data/2.5/forecast?q=${input.value}&units=metric&appid=71051542ca7ca9c015a46c330e051ec1`;
 
-  setWeather(api, forecast)
+  if (input.value) setWeather(api, forecast);
   input.value = '';
+})
+
+slider.addEventListener('click', () => {
+  let currentTemp = parseInt(temperature.innerHTML.slice(0, 2));
+
+  if (currentTemp < 32) {
+    temperature.innerHTML = `${Math.round((currentTemp * 9 / 5) + 32)} &#176;F`;
+  } else if (currentTemp > 32) {
+    temperature.innerHTML = `${Math.round((currentTemp - 32) * 5 / 9)} &#176;C`;
+  }
+
+  Array.from(forecasts).forEach(item => {
+    let newTemp = parseInt(item.innerHTML.slice(0, 2));
+
+    if (newTemp < 32) {
+      item.innerHTML = `${Math.round((newTemp * 9 / 5) + 32)} &#176;F`;
+    } else if (newTemp > 32) {
+      item.innerHTML = `${Math.round((newTemp - 32) * 5 / 9)} &#176;C`;
+    }
+  });
 })
 
 export default setGeoWeather;

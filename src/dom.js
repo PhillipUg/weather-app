@@ -10,6 +10,9 @@ const search = document.querySelector('.btn');
 const currentDate = document.getElementById('date');
 const input = document.getElementById('search');
 const error = document.querySelector('.error');
+const slider = document.querySelector('.slider');
+const forecasts = document.getElementsByClassName('forecast-temp');
 
 
-export { temperature, summary, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error };
+
+export { temperature, summary, forecasts, slider, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error };
