@@ -1,6 +1,5 @@
 import setGeoWeather from './geoWeather';
 
-window.addEventListener('DOMContentLoaded', (event) => {
-
+window.addEventListener('load', () => {
   setGeoWeather();
 })
