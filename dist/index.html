@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
-  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <script src="skycons.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
 
@@ -19,30 +20,58 @@
       </form>
     </div>
     <div class="content">
-      <div class="head"></div>
-      <div class="middle">
+      <div class="head">
         <h1 id="city"></h1>
-        <p id="temperature"></p>
-        <p id="summary"></p>
-        <canvas id="icon2" width="128" height="128"></canvas>
       </div>
-      <div class="bottom">
-        <div class="forecast">
-          <p id="day">wed</p>
-          <canvas id="icon1" width="80" height="80"></canvas>
-          <p id="forecast-temp">27</p>
+      <div class="middle">
+        <div class="first-half">
+          <div class="icon">
+            <canvas id="icon2" width="180" height="180"></canvas>
+          </div>
+          <div class="details">
+            <p id="date" class="bold"></p>
+            <br>
+            <p id="temperature"> </p>
+            <p id="summary"></p>
+          </div>
         </div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="hr"></div>
+        <div class="second-half">
+          <div class="wind">
+            <div class="bold">Wind</div>
+            <div>
+              <canvas id="icon3" width="60" height="60"></canvas>
+            </div>
+            <div id="wind" class="bold"></div>
+          </div>
+          <div class="humidity">
+            <div class="bold">Humidity</div>
+            <div>
+              <canvas id="icon4" width="60" height="60"></canvas>
+            </div>
+            <div id="humidity" class="bold"></div>
+          </div>
+          <div class="cloud">
+            <div class="bold">Cloud Cover</div>
+            <div>
+              <canvas id="icon5" width="60" height="60"></canvas>
+            </div>
+            <div id="cloud" class="bold"></div>
+          </div>
+          <div class="pressure">
+            <div class="bold">Pressure</div>
+            <div id="pres-icon">
+              <i class="fas fa-wind"></i>
+              <!-- <canvas id="icon6" width="60" height="60"></canvas> -->
+            </div>
+            <div id="pressure" class="bold"></div>
+          </div>
+        </div>
       </div>
-      <!-- <canvas id="icon1" width="128" height="128"></canvas>
-      <canvas id="icon2" width="128" height="128"></canvas> -->
-
+      <div class="bottom"></div>
     </div>
   </div>
-  <script src="https://darkskyapp.github.io/skycons/skycons.js"></script>
+  <script src="https://kit.fontawesome.com/ae46237ce1.js" crossorigin="anonymous"></script>
   <script type="module" src="main.js"></script>
 </body>
 
