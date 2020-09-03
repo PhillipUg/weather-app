@@ -26,7 +26,7 @@ In this project, as a way of practicing using `Promises` in making `API requests
 <br />
 <p align="center">
   <a href="https://github.com/PhillipUg/weather-app">
-    <img src="dist/images/w1.png" alt="Logo" width="300" height="300">
+    <img src="dist/images/w1.png" alt="Logo" width="150" height="150">
   </a>
 
   <h1 align="center">Weather App</h1>
@@ -124,7 +124,7 @@ To try it live [click here](https://phillipug.github.io/weather-app/)
 [stars-url]: https://github.com/PhillipUg/weather-app/stargazers
 [issues-shield]: https://img.shields.io/github/issues/PhillipUg/weather-app.svg?style=flat-square
 [issues-url]: https://github.com/PhillipUg/weather-app/issues
-[product-screenshot]: dist/images/gif.gif
+[product-screenshot]: dist/images/gif2.gif
 <!-- [product-screenshot2]: dist/images/page2.png -->
 
 
