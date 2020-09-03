@@ -14,7 +14,7 @@ const skycons = new Skycons({
 });
 
 const setIcon = (iconId, descr) => {
-  let currentIcon = null;
+  let currentIcon;
   switch (descr) {
     case "Clouds":
       currentIcon = Skycons.PARTLY_CLOUDY_DAY;
@@ -25,8 +25,8 @@ const setIcon = (iconId, descr) => {
     case "Clear":
       currentIcon = Skycons.CLEAR_DAY;
       break;
-    default:
-      currentIcon = Skycons.PARTLY_CLOUDY_DAY;
+    // default:
+    // currentIcon = Skycons.PARTLY_CLOUDY_DAY;
   }
 
   skycons.add(iconId, currentIcon);
@@ -37,5 +37,6 @@ skycons.add("icon5", Skycons.CLOUDY);
 skycons.add("icon3", Skycons.WIND);
 skycons.add("icon4", Skycons.FOG);
 
+skycons.play();
 
 export { skycons, setIcon };

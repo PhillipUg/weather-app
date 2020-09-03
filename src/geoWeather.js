@@ -1,5 +1,5 @@
 import { skycons, setIcon } from './skycon';
-import { temperature, summary, slider, forecasts, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error } from './dom';
+import { temperature, summary, slider, mainIcon, forecasts, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error } from './dom';
 
 function setWeather(api, forecast) {
   fetch(api)
@@ -23,11 +23,16 @@ function setWeather(api, forecast) {
       temperature.innerHTML = `${Math.floor(temp)} &#176;C`;
       summary.textContent = desc;
       currentDate.innerHTML = `${(new Date(res.dt * 1000)).toUTCString().slice(0, 16)}`
+      console.log(main)
 
-      setIcon("icon1", main);
+      const icon2 = document.createElement('canvas');
+      icon2.setAttribute("width", "180");
+      icon2.setAttribute("height", "180");
+      icon2.id = "icon2";
+
+      mainIcon.appendChild(icon2);
+
       setIcon("icon2", main);
-
-      skycons.play();
     });
 
   fetch(forecast)
@@ -37,7 +42,8 @@ function setWeather(api, forecast) {
       const results = res.list.filter(x => {
         let weatherDate = new Date(x.dt_txt);
         if (weatherDate.getHours() === 12 && (weatherDate.getDate() > (new Date(Date.now()).getDate()))) return x;
-      })
+      });
+
       results.forEach((result, index) => {
         let weatherDate = new Date(result.dt_txt);
         let main = result.weather[0].main;
@@ -68,7 +74,7 @@ function setWeather(api, forecast) {
         focast.appendChild(fotemp);
         bottom.appendChild(focast);
 
-        setIcon(`icons${index}`, main)
+        setIcon(`icons${index}`, main);
       })
 
     })
@@ -93,6 +99,7 @@ const setGeoWeather = () => {
 search.addEventListener('click', (e) => {
   e.preventDefault();
   bottom.innerHTML = "";
+  mainIcon.innerHTML = "";
   error.classList.add('hide');
 
 

@@ -12,7 +12,7 @@ const input = document.getElementById('search');
 const error = document.querySelector('.error');
 const slider = document.querySelector('.slider');
 const forecasts = document.getElementsByClassName('forecast-temp');
+const mainIcon = document.querySelector('.icon');
 
 
-
-export { temperature, summary, forecasts, slider, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error };
+export { temperature, summary, mainIcon, forecasts, slider, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error };
