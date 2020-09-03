@@ -97,11 +97,13 @@ form {
   width: 40%;
   display: flex;
   text-align: center;
-  margin: 10px 0;
+  margin: 2% 0 0 3%;
   justify-content: center;
   align-items: center;
+  border-radius: 20%;
   border: none;
   white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.479);
 }
 
 #city i {
