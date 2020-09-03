@@ -1,3 +1,4 @@
+
 const skycons = new Skycons({
   "color": {
     "cloud": "#fff",
@@ -25,8 +26,8 @@ const setIcon = (iconId, descr) => {
     case "Clear":
       currentIcon = Skycons.CLEAR_DAY;
       break;
-    // default:
-    // currentIcon = Skycons.PARTLY_CLOUDY_DAY;
+    default:
+      currentIcon = Skycons.PARTLY_CLOUDY_DAY;
   }
 
   skycons.add(iconId, currentIcon);

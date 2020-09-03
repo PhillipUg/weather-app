@@ -1,3 +1,4 @@
+const wrapper = document.querySelector('.wrapper');
 const temperature = document.getElementById('temperature');
 const summary = document.getElementById('summary');
 const city = document.getElementById('city');
@@ -15,4 +16,4 @@ const forecasts = document.getElementsByClassName('forecast-temp');
 const mainIcon = document.querySelector('.icon');
 
 
-export { temperature, summary, mainIcon, forecasts, slider, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error };
+export { temperature, summary, mainIcon, forecasts, wrapper, slider, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error };

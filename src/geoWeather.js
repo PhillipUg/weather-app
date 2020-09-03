@@ -1,11 +1,10 @@
 import { skycons, setIcon } from './skycon';
-import { temperature, summary, slider, mainIcon, forecasts, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error } from './dom';
+import { temperature, summary, wrapper, slider, mainIcon, forecasts, city, windy, cloudy, humid, pres, bottom, currentDate, search, input, error } from './dom';
 
 function setWeather(api, forecast) {
   fetch(api)
     .then(res => res.json())
     .then(res => {
-      console.log(res)
       const name = res.name;
       const country = res.sys.country;
       const temp = res.main.temp;
@@ -23,7 +22,6 @@ function setWeather(api, forecast) {
       temperature.innerHTML = `${Math.floor(temp)} &#176;C`;
       summary.textContent = desc;
       currentDate.innerHTML = `${(new Date(res.dt * 1000)).toUTCString().slice(0, 16)}`
-      console.log(main)
 
       const icon2 = document.createElement('canvas');
       icon2.setAttribute("width", "180");
@@ -33,6 +31,14 @@ function setWeather(api, forecast) {
       mainIcon.appendChild(icon2);
 
       setIcon("icon2", main);
+
+      console.log(main)
+
+      if (main === "Rain") {
+        wrapper.style.backgroundImage = "url(../dist/images/cloud.jpg)"
+      } else {
+        wrapper.style.backgroundImage = "url(../dist/images/w2.jpg)"
+      }
     });
 
   fetch(forecast)
@@ -106,7 +112,11 @@ search.addEventListener('click', (e) => {
   const api = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=71051542ca7ca9c015a46c330e051ec1`;
   const forecast = `https://api.openweathermap.org/data/2.5/forecast?q=${input.value}&units=metric&appid=71051542ca7ca9c015a46c330e051ec1`;
 
-  if (input.value) setWeather(api, forecast);
+  if (input.value === "") {
+    error.classList.toggle('hide');
+  } else {
+    setWeather(api, forecast);
+  }
   input.value = '';
 })
 
