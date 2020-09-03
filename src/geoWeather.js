@@ -37,9 +37,9 @@ function setWeather(api, forecast) {
       setIcon('icon2', main);
 
       if (main === 'Rain') {
-        wrapper.style.backgroundImage = 'url(../dist/images/cloud.jpg)';
+        wrapper.style.backgroundImage = 'url(./images/cloud.jpg)';
       } else {
-        wrapper.style.backgroundImage = 'url(../dist/images/w2.jpg)';
+        wrapper.style.backgroundImage = 'url(./images/w2.jpg)';
       }
     });
   /*eslint-disable */
